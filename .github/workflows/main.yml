@@ -4,7 +4,7 @@ on:
     branches: [main]
 jobs:
   deploy:
-    name: deploy
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,3 +33,20 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/back:latest
+
+  deploy:
+    name: run ssh
+    runs-on: ubuntu-latest
+    steps:
+      - name: run ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 183.101.189.204
+          username: test
+          password: qwer1234
+          port: 130
+          script:
+            docker rm -f back
+            docker image prune -f
+            docker build --tag ddarahakit2025/back:latest .
+            docker run -d --name back -p 8080:8080 ddarahakit2025/back:latest
