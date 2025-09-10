@@ -12,7 +12,7 @@ public class TestController {
     @GetMapping
     public ResponseEntity get() {
         System.out.println("test2");
-        return ResponseEntity.ok("확인 완료");
+        return ResponseEntity.ok("무중단 배포 확인 완료");
     }
 
     @GetMapping("/test")
