@@ -41,7 +41,6 @@ jobs:
           password: qwer1234
           port: 130
           script:
-            docker stop back;
             docker rm -f back;
             docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/back:latest .;
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/back:latest .;
