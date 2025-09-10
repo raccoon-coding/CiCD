@@ -15,8 +15,8 @@ public class TestController {
         return ResponseEntity.ok("무중단 배포 확인 완료");
     }
 
-    @GetMapping("/test")
+    @GetMapping("/health")
     public ResponseEntity test() {
-        return ResponseEntity.ok("확인");
+        return ResponseEntity.ok(true);
     }
 }
