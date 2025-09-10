@@ -42,7 +42,7 @@ jobs:
           port: 130
           script:
             docker stop back;
-            docker rm back;
+            docker rm -f back;
             docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/back:latest .;
-            docker build --tag ${{ secrets.DOCKERHUB_USERNAME }}/back:latest .;
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/back:latest .;
             docker run -d --name back -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/back:latest;
