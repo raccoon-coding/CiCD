@@ -17,6 +17,6 @@ public class TestController {
 
     @GetMapping("/health")
     public ResponseEntity test() {
-        return ResponseEntity.ok(true);
+        return ResponseEntity.ok("ok");
     }
 }
