@@ -15,5 +15,10 @@ jobs:
           password: qwer1234
           port: 130
           script:
-            echo test > /tmp/test
+            cd /tmp
+            git clone https://github.com/raccoon-coding/CiCD.git
+            cd CiCD
+            ./gradlew bootjar
+            docker build -t cicd .
+            docker run -p 8080:8080 -d --name testCicd cicd
           
