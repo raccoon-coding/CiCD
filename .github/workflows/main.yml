@@ -36,7 +36,7 @@ jobs:
       - name: run ssh
         uses: appleboy/ssh-action@v1
         with:
-          host: 183.101.189.204
+          host: 121.140.125.176
           username: test
           password: qwer1234
           port: 130
