@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping
     public ResponseEntity get() {
-        System.out.println("test");
+//        System.out.println("test");
         return ResponseEntity.ok("확인 완료");
     }
 
