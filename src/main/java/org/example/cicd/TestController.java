@@ -16,6 +16,6 @@ public class TestController {
 
     @GetMapping("/test")
     public ResponseEntity test() {
-        return ResponseEntity.ok("확인 완료");
+        return ResponseEntity.ok("확인");
     }
 }
