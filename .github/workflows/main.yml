@@ -1,0 +1,19 @@
+name: project cicd
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    name: deply
+    runs-on: ubuntu-latest
+    steps:
+      - name: run ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 183.101.189.204
+          username: test
+          password: qwer1234
+          port: 130
+          script:
+            echo test > /tmp/test
+          
