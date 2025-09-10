@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping
     public ResponseEntity get() {
-        return ResponseEntity.ok("무중단 3 배포 확인 완료");
+        return ResponseEntity.ok("무중단 2 배포 확인 완료");
     }
 
     @GetMapping("/health")
