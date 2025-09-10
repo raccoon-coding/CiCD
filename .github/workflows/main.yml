@@ -15,15 +15,14 @@ jobs:
           password: qwer1234
           port: 130
           script:
-            echo "qwer1234" | sudo -S su - root -c '
-              cd /tmp;
-              rm -rf CiCD;
-              git clone https://github.com/raccoon-coding/CiCD.git;
-              cd CiCD;
-              chmod +x ./gradlew;
-              ./gradlew bootjar;
-              docker build -t cicd .;
-              docker rm -f testCicd || true;
-              docker run -p 8080:8080 -d --name testCicd cicd;
-            '
+            cd /tmp;
+            rm -rf CiCD;
+            git clone https://github.com/raccoon-coding/CiCD.git;
+            cd CiCD;
+            chmod +x ./gradlew;
+            ./gradlew bootjar;
+            docker rm -f testCicd || true;
+            docker image prune;
+            docker build -t cicd .;
+            docker run -p 8080:8080 -d --name testCicd cicd;
           
